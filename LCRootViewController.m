@@ -93,7 +93,7 @@ static void patchExecSlice(const char *path, struct mach_header_64 *header) {
 
     uint32_t magic = *(uint32_t *)map;
     if (magic == FAT_CIGAM) {
-        // Find compatible slice
+        // Find compatible slice    
         struct fat_header *header = (struct fat_header *)map;
         struct fat_arch *arch = (struct fat_arch *)(map + sizeof(struct fat_header));
         for (int i = 0; i < OSSwapInt32(header->nfat_arch); i++) {
